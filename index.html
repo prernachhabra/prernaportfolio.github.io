@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Website</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/b48dbe48b9.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- <canvas id="canvas"></canvas> -->
+        
+    <div id="header">
+        <div class="container">
+            <!-- <div class="trail"></div> -->
+            <nav>
+                <img src="images/logo.jpg" class="logo">
+                <ul id="sidemenu">
+                    <li> <a href="#header">Home</a></li>
+                    <li> <a href="#about">About</a></li>
+                    <!---<li> <a href="#">Services</a></li>
+                    <li> <a href="#">Portfolio</a></li>---->
+                    <li> <a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Engineer</p>
+                <h1> Hi, I'm <span>Prerna</span> </h1>
+            </div>
+        </div>
+    </div>
+<!-- ------about------ -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.jpg">
+                </div>  
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Motivated Electronic Instrumentation and Control student with a strong foundation in electronics, control systems, and instrumentation. I have completed coursework in these areas and am eager to apply my skills in a professional environment. Possess excellent problem-solving skills and a passion for learning and innovation. Seeking a challenging and rewarding position in a tech-based company where I can contribute to the growth of the organization.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('Education')">Education</p>
+                    <p class="tab-links" onclick="opentab('Projects')">Projects</p>
+                </div>
+                <div class="tab-contents active-tab" id="Skills">
+                    <ul>
+                        <li><span>Basic of C,C++,Python</span></li>
+                        <li><span>Machine learning</span></li>
+                        <li><span>Artificial Intelligence</span></li>
+                        <li><span>Oracle SQL</span></li>
+                        <li><span>Arduino</span></li>
+                        <li><span>Multisim</span></li>
+                        <li><span>Microsoft excel & PowerPoint</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="Education">
+                    <ul>
+                        <li><span>2020 <br>Class XII <br>DAV Public School, Assandh</span></li>
+                        <li><span>2020 - 2024 <br>
+                            BE (ELECTRONICS INSTRUMENTATION &
+                            CONTROL) <br> Thapar Institute Of Engineering & Technology,
+                            Patiala</span></li>    
+                </div>
+                <div class="tab-contents" id="Projects">
+                    <ul>
+                        <li><span> </span></li>
+            </div>
+        </div>
+    </div>
+    
+    <!----------------- contact---------------------->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                   <h1 class="sub-title">Contact Me</h1>
+                   <p><i class="fa-solid fa-paper-plane"></i>prernachhabra2002@gmail.com</p>
+                   <p><i class="fa-solid fa-phone"></i>+91-9306843641</p>
+                   <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                   </div> 
+                   <a href="images/resume.pdf" download class="btn btn2"><i class="fa-solid fa-download"></i><span>Download Resume</span> </a>
+                   <!-- <a href="" class="btn btn2">Download Resume</a> -->
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Sumbit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+      
+      function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab"); 
+      }
+    </script>
+
+    <script>
+
+        var sidemenu= document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+        function closemenu(){
+            sidemenu.style.right="-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMf5Ds-vtilCpT124_N2N4PPVHL9rHKscmz_ZvzmzA0Yrfrxj39nmYAgaR3CNzZe0x/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+<!-- <script>
+        document.addEventListener("mousemove", function(event) {
+  const trail = document.querySelector(".trail");
+  trail.style.left = event.pageX + "px";
+  trail.style.top = event.pageY + "px";
+     });
+    </script>  -->
+    <!-- <script>
+        function createTrail(event) {
+            const trail = document.createElement("div");
+            trail.classList.add("trail");
+            trail.style.left = event.pageX + "px";
+            trail.style.top = event.pageY + "px";
+            trail.style.transform = `rotate(${Math.random() * 360}deg)`;
+            document.body.appendChild(trail);
+    
+            setTimeout(function() {
+              document.body.removeChild(trail);
+            }, 800);
+          }
+    
+          document.addEventListener("mousemove", function(event) {
+            createTrail(event);
+          });
+          
+      </script>
+
+      
+    <-- <script>
+        document.addEventListener("mousemove", function(event) {
+            const trail = document.createElement("div");
+            trail.className = "trail";
+            document.body.appendChild(trail);
+          
+            trail.style.left = event.pageX + "px";
+            trail.style.top = event.pageY + "px";
+          
+            setTimeout(function() {
+              document.body.removeChild(trail);
+            }, 800);
+          });
+    </script> -->
+    <!-- <script>
+        function createSparkle(event) {
+            const sparkle = document.createElement("div");
+            sparkle.classList.add("sparkle");
+            sparkle.style.left = event.pageX - 7.5 + "px";
+            sparkle.style.top = event.pageY - 7.5 + "px";
+            document.body.appendChild(sparkle);
+    
+            setTimeout(function() {
+              document.body.removeChild(sparkle);
+            }, 1500);
+          }
+    
+          document.addEventListener("mousemove", function(event) {
+            createSparkle(event);
+          });
+      </script> -->
+  
+    </body>
+</html>
