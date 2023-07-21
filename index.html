@@ -49,9 +49,9 @@
                 </div>
                 <div class="tab-contents active-tab" id="Skills">
                     <ul>
-                        <li><span>Basic of C,C++,Python</span></li>
-                        <li><span>Machine learning</span></li>
-                        <li><span>Artificial Intelligence</span></li>
+                        <li><span>Basic of C, C++, Python</span></li>
+                        <li><span>HTML, CSS, JS, REACT-JS</span></li>
+                        <li><span>VHDL, Verilog</span></li>
                         <li><span>Oracle SQL</span></li>
                         <li><span>Arduino</span></li>
                         <li><span>Multisim</span></li>
@@ -68,7 +68,13 @@
                 </div>
                 <div class="tab-contents" id="Projects">
                     <ul>
-                        <li><span> </span></li>
+                        <li> <a href="https://github.com/prernachhabra/prernaportfolio.github.io.git"><span>Portfolio Website</span></a></li>
+                        <li><a href="https://github.com/prernachhabra/flappybird.github.io.git"><span>Flappy Bird Game</span></a></li>
+                        <li><a href="https://github.com/prernachhabra/visualizer-react.git"><span>Visualizer Website Sample </span></a></li>
+                        <li><span>Precesion Mangonal</span></li>
+                        <li><span>Automated Buggy</span></li>
+                        <li><span>Arduino MKR Wi-Fi 1010 board and blink the inbuilt LED <br> Arduino MKR Wi-Fi 1010 board with a LDR</span></li>
+
             </div>
         </div>
     </div>
@@ -82,10 +88,10 @@
                    <p><i class="fa-solid fa-paper-plane"></i>prernachhabra2002@gmail.com</p>
                    <p><i class="fa-solid fa-phone"></i>+91-9306843641</p>
                    <div class="social-icons">
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href="http://twitter.com/_prerna_chhabra"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://instagram.com/_prerna_chhabra_?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa-brands fa-instagram"></i></a>
                    </div> 
-                   <a href="images/resume.pdf" download class="btn btn2"><i class="fa-solid fa-download"></i><span>Download Resume</span> </a>
+                   <a href="images/resume_p.pdf" download class="btn btn2"><i class="fa-solid fa-download"></i><span>Download Resume</span> </a>
                    <!-- <a href="" class="btn btn2">Download Resume</a> -->
                 </div>
                 <div class="contact-right">
@@ -95,6 +101,7 @@
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Sumbit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
 
@@ -130,11 +137,17 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxMf5Ds-vtilCpT124_N2N4PPVHL9rHKscmz_ZvzmzA0Yrfrxj39nmYAgaR3CNzZe0x/exec'
         const form = document.forms['submit-to-google-sheet']
-      
+        const msg = document.getElementById("msg");
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+                msg.innerHTML = "Message Sent Successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
             .catch(error => console.error('Error!', error.message))
         })
       </script>
